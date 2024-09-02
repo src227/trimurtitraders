@@ -91,10 +91,10 @@
                             </div>
                         </div>
                         <div class="col-lg-7">
-                            <form action="" class="">
+                            <form action="" id="contact-form">
                                 <input type="text" class="w-100 form-control border-0 py-3 mb-4" placeholder="Your Name">
-                                <input type="email" class="w-100 form-control border-0 py-3 mb-4" placeholder="Enter Your Email">
-                                <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" placeholder="Your Message"></textarea>
+                                <input type="email" class="w-100 form-control border-0 py-3 mb-4" name="user_email" placeholder="Enter Your Email">
+                                <textarea class="w-100 form-control border-0 mb-4" rows="5" cols="10" name="user_message" placeholder="Your Message"></textarea>
                                 <button class="w-100 btn form-control border-secondary py-3 bg-white text-primary " type="submit">Submit</button>
                             </form>
                         </div>
@@ -104,7 +104,7 @@
                                 <div>
                                     <h4>Main Branch</h4>
                                     <p class="mb-2">Near DNS Bank, Sonar Pada, MIDC Phase 2, Dombivli (E)</p>
-                                    <p class="mb-2">Phone: +91 7517907660</p>
+                                    <p  class="mb-2">Phone: +91 9594958201<br/> &nbsp;&nbsp;&nbsp;+91 7517907660 <br/> &nbsp;&nbsp;&nbsp;+91 7448093273</p>
                                     <p class="mb-2">Email: trimurtitrader@gmail.com</p>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                 <div>
                                     <h4>Branch</h4>
                                     <p class="mb-2">Otur, Maharastra, India</p>
-                                    <p class="mb-2">Phone: +91 9594958201</p>
+                                    <p class="mb-2">Phone: +91 9594958201<br/> &nbsp;&nbsp;&nbsp;+91 7517907660 <br/> &nbsp;&nbsp;&nbsp;+91 7448093273</p>
                                     <p class="mb-2">Email: trimurtitrader@gmail.com</p>
                                 </div>
                             </div>
@@ -154,10 +154,10 @@
                 </div>
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <h4 class="text-light mb-3">Why People Like us!</h4>
-                            <p class="mb-4">we consistently deliver exceptional quality and freshness in every product. Our commitment to excellence, attention to detail, and reliable service ensure that customers receive the best produce available. We prioritize customer satisfaction and build lasting relationships through trust and superior offerings.</p>
-                        </div>
+                        <form id="contact-form">
+                            <input class="form-control border-0 w-100 py-3 px-4 rounded-pill" type="number" name="user_email" placeholder="Your Email">
+                            <button type="submit" class="btn btn-primary border-0 border-secondary py-3 px-4 position-absolute rounded-pill text-white" style="top: 0; right: 0;">Contact Us</button>
+                        </form>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <div class="d-flex flex-column text-start footer-item">
@@ -172,7 +172,7 @@
                             <h4 class="text-light mb-3">Contact</h4>
                             <p>Address: Near DNS Bank, Sonar Pada, MIDC Phase 2, Dombivli (E)</p>
                             <p>Email: trimurtitrader@gmail.com</p>
-                            <p>Phone: +91 7517907660</p>
+                            <p>Phone: +91 9594958201<br/> &nbsp;&nbsp;&nbsp;+91 7517907660 <br/> &nbsp;&nbsp;&nbsp;+91 7448093273</p>
                         </div>
                     </div>
                 </div>
@@ -188,10 +188,7 @@
                         <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Trimurti Traders</a>, All right reserved.</span>
                     </div>
                     <div class="col-md-6 my-auto text-center text-md-end text-white">
-                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By <a class="border-bottom" href="https://src227.github.io">SRC227</a>
+                        Designed By <a class="border-bottom" href="https://src227.github.io/">SRC227</a>
                     </div>
                 </div>
             </div>
@@ -202,8 +199,26 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-primary border-3 border-primary rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>   
 
-        
+    <script>
+        emailjs.init({publicKey: "cDZ-_7RGBf3cGOD8K",});
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            
+            // Use EmailJS to send the form data
+            emailjs.sendForm('service_8b0lyvb', 'template_soyck4t', {
+            user_email: document.getElementsByName('user_email').value,
+            message: document.getElementsByName('user_message').value,
+            })
+            .then(function(response) {
+                alert('Your message has been sent successfully!');
+            }, function(error) {
+                alert('Failed to send your message. Please try again.');
+            });
+        });
+    </script>
+    
     <!-- JavaScript Libraries -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>

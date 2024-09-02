@@ -183,7 +183,7 @@
     background-repeat: no-repeat;
     background-size: auto;
     position: relative;
-    width: 100%;
+    width: 103%;
     height: 89vh;
 }
 
@@ -503,3 +503,11 @@
 }
 /*** Footer End ***/
 
+@media (min-width: 600px) and (max-width: 900px){
+    .hero-header {
+        background-image: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1)), url(../img/Rice.jpg);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+}
