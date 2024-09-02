@@ -147,5 +147,24 @@
         button.parent().parent().find('input').val(newVal);
     });
 
+    emailjs.init('qKS6CGOvhSXSk7o7Q');
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        
+        var msg = $("#contact-form textarea[name='user_message']").val();
+        // Use EmailJS to send the form data
+        emailjs.send('service_8b0lyvb', 'template_soyck4t', {
+        user_email: $("#contact-form input[name='user_email']").val(),
+        message: msg === undefined || msg === '' ? "Inquiry About Products" : msg,
+        })
+        .then(function(response) {
+            alert('Your message has been sent successfully!');
+        }, function(error) {
+            alert('Failed to send your message. Please try again.');
+        });
+    });
+    
+   
+
 })(jQuery);
 
